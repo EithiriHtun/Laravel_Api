@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Model;
 use Faker\Generator as Faker;
+use App\Models\Model;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -31,7 +32,7 @@ class ReviewFactory extends Factory
         return [
 
                     'product_id' => function() {
-                        return App\Models\Model\Product::all()->random();
+                        return Product::all()->random();
                     },
                     'customer' => $this->faker->name,
                     'review' => $this->faker->paragraph,
