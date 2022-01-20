@@ -1,8 +1,23 @@
 <?php
 
 namespace Database\Factories\Model;
+use Faker\Generator as Faker;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+
+// $factory->define(App\Models\Model\Review::class, function (Faker $faker) {
+
+//     return [
+
+//         'product_id' => function() {
+//             return Product::all()->random();
+//         },
+//         'customer' => $faker->name,
+//         'review' => $faker->paragraph,
+//         'star' => $faker->numberBetween(0,5),
+
+//     ];
+// });
 
 class ReviewFactory extends Factory
 {
@@ -14,7 +29,14 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            //
-        ];
+
+                    'product_id' => function() {
+                        return App\Models\Model\Product::all()->random();
+                    },
+                    'customer' => $this->faker->name,
+                    'review' => $this->faker->paragraph,
+                    'star' => $this->faker->numberBetween(0,5),
+            
+                ];
     }
 }
