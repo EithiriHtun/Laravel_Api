@@ -44,7 +44,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
+     * @param  \App\Http\Requests\ProductRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request)
@@ -88,13 +88,16 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
+     * @param  \App\Http\Requests\ProductRequest  $request
      * @param  \App\Models\Model\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return response([
+            'data' => new ProductResource($product)
+        ],Response::HTTP_CREATED);
     }
 
     /**
