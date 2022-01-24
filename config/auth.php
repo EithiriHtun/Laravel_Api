@@ -18,6 +18,11 @@ return [
         'passwords' => 'users',
     ],
 
+    'api' => [
+        'driver' => '_passport_',
+        'provider' => 'users',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
