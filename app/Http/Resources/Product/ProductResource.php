@@ -27,5 +27,6 @@ class ProductResource extends JsonResource
                 'reviews' => route('reviews.index',$this->id)
             ]
         ];
+        
     }
 }
